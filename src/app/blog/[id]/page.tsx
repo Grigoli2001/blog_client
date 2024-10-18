@@ -2,6 +2,9 @@ import { fetchBlogById, fetchBlogs } from "@/app/api/blog";
 import BlogDetails from "@/app/components/BlogDetails";
 
 export async function generateStaticParams() {
+  if (process.env.NODE_ENV === "production") {
+    return [];
+  }
   const res = await fetchBlogs();
   const blogs = res.blogs;
 

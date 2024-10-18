@@ -1,11 +1,15 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  reactStrictMode: true,
   compiler: {
-    styledComponents: true, // Enable styled-components for SSR
+    styledComponents: true,
   },
   images: {
-    domains: ["firebasestorage.googleapis.com"], // Add your domain here
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "firebasestorage.googleapis.com",
+      },
+    ],
   },
 };
 

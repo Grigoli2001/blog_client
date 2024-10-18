@@ -117,7 +117,7 @@ const BlogDetails: React.FC<BlogDetailsProps> = ({ blog }) => {
   const router = useRouter();
 
   const handleBack = () => {
-    router.back(); // Go back to the previous page
+    router.back();
   };
   return (
     <BlogContainer>

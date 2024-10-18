@@ -1,5 +1,6 @@
 import axios from "axios";
 
+const PUBLIC_URL = process.env.NEXT_PUBLIC_API_URL || "http://localhost:8080";
 export interface Blog {
   _id: string;
   title: string;
@@ -27,13 +28,13 @@ export const fetchBlogs = async (
   limit: number = 6,
   category?: string | null
 ): Promise<BlogResponse> => {
-  const response = await axios.get(`http://localhost:8080/api/blogs/`, {
+  const response = await axios.get(`${PUBLIC_URL}/api/blogs/`, {
     params: { page, limit, category },
   });
   return response.data as BlogResponse;
 };
 
 export const fetchBlogById = async (id: string) => {
-  const response = await axios.get(`http://localhost:8080/api/blog/${id}`);
+  const response = await axios.get(`${PUBLIC_URL}/api/blog/${id}`);
   return response.data as Blog;
 };
