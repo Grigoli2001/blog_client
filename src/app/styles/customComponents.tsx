@@ -1,7 +1,7 @@
 import styled from "styled-components";
+import Link from "next/link";
 
-export const BlogItemContentContainer = styled.div``;
-export const BlogItemContainer = styled.div`
+export const StyledBlogLink = styled(Link)`
   border: 2px solid #afafaf;
   overflow: hidden;
   border-radius: 10px;
@@ -17,6 +17,9 @@ export const BlogItemContainer = styled.div`
   width: 100%;
   position: relative;
 `;
+
+export const BlogItemContentContainer = styled.div``;
+export const BlogItemContainer = styled.div``;
 
 export const BlogImage = styled.img`
   width: 100%;

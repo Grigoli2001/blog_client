@@ -98,7 +98,7 @@ export const BlogList = ({ initialData }: { initialData: BlogResponse }) => {
     setIsMounted(true);
   }, []);
 
-  const { data, fetchNextPage, hasNextPage } = useInfiniteQuery({
+  const { data, fetchNextPage, hasNextPage, error } = useInfiniteQuery({
     queryKey: ["blogs", selectedCategory],
     queryFn: ({ pageParam = 1 }) =>
       fetchBlogs(pageParam, 6, selectedCategory?.toLowerCase()),
@@ -120,6 +120,9 @@ export const BlogList = ({ initialData }: { initialData: BlogResponse }) => {
   const handleCategoryChange = (category: string) => {
     setSelectedCategory(category === "All" ? null : category);
   };
+  if (error) {
+    return <div>Something went wrong</div>;
+  }
   if (!isMounted) {
     return null;
   }
